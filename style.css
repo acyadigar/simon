@@ -67,11 +67,21 @@ p{
     font-size: 20px;
 }
 .selectedButton{
-    background-color: white;
+    background-color: rgb(196, 191, 132);
+    transition: all ease-in-out, 0.3s;
+    transform: scale(1.1);
 }
 .wrongAnswer{
     background-color: red;
 }
+.green:hover,
+.red:hover,
+.yellow:hover,
+.cyan:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
 @media (max-width: 950px) and (min-width: 600px){
     .board{
         position: static;

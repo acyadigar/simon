@@ -44,7 +44,7 @@ function newSection() {
   userClickPath = [];
   startInfo.textContent = "";
 
-  colorSpecification(randomSelectedColor);
+  animateColor(randomSelectedColor);
 
   colorPath.push(randomColor);
   document.querySelector(".last").textContent = "playing...";
@@ -52,7 +52,7 @@ function newSection() {
 
 function answer() {
   const color = this.classList[1];
-  colorSpecification(this);
+  animateColor(this);
   userClickPath.push(color);
   answerChecking(userClickPath.length - 1);
 }
@@ -69,11 +69,13 @@ async function answerChecking(last) {
   }
 }
 
-function colorSpecification(randomSelectedColor) {
+function animateColor(randomSelectedColor) {
   randomSelectedColor.classList.add("selectedButton");
-  setTimeout(function () {
-    randomSelectedColor.classList.remove("selectedButton");
-  }, 100);
+  randomSelectedColor.addEventListener('transitionend', transitionend)
+}
+
+function transitionend(){
+    this.classList.remove('selectedButton')
 }
 
 function correctAnswer() {
