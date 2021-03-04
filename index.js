@@ -9,6 +9,11 @@ const score = document.querySelector(".score");
 const scoreboard = document.querySelector(".highscore");
 const buttons = document.querySelectorAll(".button");
 const startInfo = document.querySelector(".startInfo");
+
+const nextLevel = new Audio("sounds/animated.mp3");
+const theEnd = new Audio("sounds/the-end.mp3");
+const correct = new Audio('sounds/correct-answer.mp3')
+
 const currentDate = new Date();
 
 if (window.localStorage.highestScore) {
@@ -45,11 +50,13 @@ function newSection() {
   startInfo.textContent = "";
 
   animateColor(randomSelectedColor);
+  nextLevel.play()
 
   colorPath.push(randomColor);
   document.querySelector(".last").textContent = "playing...";
 }
 
+// player's clicks
 function answer() {
   const color = this.classList[1];
   animateColor(this);
@@ -60,6 +67,9 @@ function answer() {
 async function answerChecking(last) {
   if (userClickPath[last] == colorPath[last]) {
     if (userClickPath.length == colorPath.length) {
+      correct.play()
+      correct.currentTime = 0
+      
       await correctAnswer();
       score.textContent = level;
     }
@@ -101,6 +111,7 @@ function wrongAnswer() {
   buttons.forEach((button) => button.removeEventListener("click", answer));
 
   html.classList.add("wrongAnswer");
+  theEnd.play()
 
   setTimeout(function () {
     html.classList.remove("wrongAnswer");

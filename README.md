@@ -10,3 +10,5 @@ It also tracks:
 #### How to Play:
 
 Follow the animated color pattern from scratch at every level to get to the next level.
+
+*sounds source 'mixkit.co'*
