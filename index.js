@@ -119,3 +119,7 @@ function diff_hours(date1, date2){
     const diff = (date2.getTime() - date1.getTime()) / 36e5
     return Math.abs(Math.round(diff))
 }
+
+if (window.innerWidth <= 600){
+  startInfo.addEventListener('click', newSection)
+}

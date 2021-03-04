@@ -92,6 +92,16 @@ p{
         position: static;
     }
     .row{
-        width: 100%;
+        width: 250px;
+    }
+    .button{
+        height: 100px;
+        width: 100px;
+    }
+    .highscore,
+    .last{
+        font-size: 18px;
+        margin: 0;
+        padding: 0;
     }
 }
