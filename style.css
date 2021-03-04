@@ -97,6 +97,7 @@ p{
     .button{
         height: 100px;
         width: 100px;
+        -webkit-tap-highlight-color: transparent;
     }
     .highscore,
     .last{

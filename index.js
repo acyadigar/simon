@@ -120,6 +120,6 @@ function diff_hours(date1, date2){
     return Math.abs(Math.round(diff))
 }
 
-if (window.innerWidth <= 600){
+if (window.innerWidth <= 900){
   startInfo.addEventListener('click', newSection)
 }
