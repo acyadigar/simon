@@ -51,6 +51,8 @@ function newSection() {
 
   animateColor(randomSelectedColor);
   nextLevel.play()
+  level++;
+  score.textContent = level;
 
   colorPath.push(randomColor);
   document.querySelector(".last").textContent = "playing...";
@@ -71,7 +73,6 @@ async function answerChecking(last) {
       correct.currentTime = 0
       
       await correctAnswer();
-      score.textContent = level;
     }
   } else {
     wrongAnswer();
@@ -92,7 +93,6 @@ function correctAnswer() {
   return new Promise((resolve) => {
     setTimeout(function () {
       newSection();
-      level++;
 
       resolve();
     }, 1000);
